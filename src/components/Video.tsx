@@ -47,6 +47,7 @@ export function Video({ lessonSlug }: VideoProps) {
     variables: {
       slug: lessonSlug,
     },
+    fetchPolicy: "no-cache",
   });
 
   if (!data) {
