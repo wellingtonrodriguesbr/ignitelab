@@ -5,7 +5,7 @@ module.exports = {
     extend: {
       backgroundImage: {
         blur: "url(/src/assets/bg-background.png)",
-        react: "url(/src/assets/ReactJS icon.svg)",
+        react: "url(/src/assets/reactjs-bg.svg)",
       },
       fontFamily: {
         sans: "Roboto, sans-serif",
