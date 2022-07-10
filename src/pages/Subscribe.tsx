@@ -2,11 +2,14 @@ import { FormEvent, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Logo } from "../components/Logo";
 import { useCreateSubscriberMutation } from "../graphql/generated";
+import CodeMockupImage from '../assets/code-mockup.png'
 
 export function Subscribe() {
   const navigate = useNavigate();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+
+  const isSubscriberDisabled = !name && !email;
 
   const [createSubscriber, { loading }] = useCreateSubscriberMutation();
 
@@ -68,7 +71,7 @@ export function Subscribe() {
               />
               <button
                 type="submit"
-                disabled={loading}
+                disabled={loading || isSubscriberDisabled}
                 className="bg-green-500 mt-4 uppercase py-4 rounded font-bold text-sm hover:bg-green-700 transition-colors disabled:opacity-50"
               >
                 Garantir minha vaga
@@ -76,8 +79,7 @@ export function Subscribe() {
             </form>
           </div>
         </div>
-
-        <img src="/src/assets/code-mockup.png" alt="" className="mt-10" />
+          <img src={CodeMockupImage} alt="" className="mt-10" />
       </div>
     </div>
   );
